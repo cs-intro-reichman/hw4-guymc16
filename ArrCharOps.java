@@ -22,6 +22,10 @@ public class ArrCharOps {
         System.out.println(compareTo("Zoo", "zoo"));
         System.out.println(hashCode(arr1));
         System.out.println(hashCode(arr2));
+        
+
+       
+
     }
 
     /** Prints the given array of characters, and moves the cursor to the next line.
@@ -183,15 +187,12 @@ public class ArrCharOps {
         {
             for (int i=0; i<Math.min(str1.length(), str2.length()); i++)
             {
-                if ((str1.charAt(i)<str2.charAt(i)) || (str1.charAt(i) == str2.charAt(i) + 32))
+                if (str1.charAt(i)<str2.charAt(i))
                 {
-                    if (str2.charAt(i) == str1.charAt(i) + 32) return 1;
-                    else return -1;
+                  return -1;
                 } else if (str1.charAt(i)>str2.charAt(i))
                 {
-                    if (str1.charAt(i) == str2.charAt(i) + 32) return -1;
-                    else return 1;
-                   
+                 return 1;
                 }
             }
             if (str1.length()<str2.length()) 
