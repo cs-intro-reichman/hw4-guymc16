@@ -1,5 +1,42 @@
 public class Primes {
     public static void main(String[] args) {
-        // Replace this statement with your code
+        
+        int N = Integer.parseInt(args[0]);
+        boolean [] array = new boolean[N+1];
+        int p = 2;
+        int multi = 2;
+        int count = 0;
+
+
+
+        for (int i=2;i<N; i++)
+    {
+        array[i] = true;
+    }
+        while (p*p<=N) 
+        {  
+        if (array[p]) 
+        {
+            multi = p*p;
+            while (multi <=N) 
+            {
+                array[multi] = false;
+                multi+= p;
+            }
+        }
+        p++;
+    }
+    
+
+    for (int i=2;i<N; i++)
+    {
+        if (array[i] == true)
+        {
+        System.out.println(i);
+        count++;
+        }
+    }
+    System.out.println("There are " + count + " primes between 2 and " + N + " (" + (int)(((double)count/N)*100) + "% are primes)");
+
     }
 }
