@@ -9,7 +9,7 @@ public class Primes {
 
 
 
-        for (int i=2;i<N; i++)
+        for (int i=2;i<N+1; i++)
     {
         array[i] = true;
     }
@@ -28,7 +28,7 @@ public class Primes {
     }
     
 
-    for (int i=2;i<N; i++)
+    for (int i=2;i<N+1; i++)
     {
         if (array[i] == true)
         {
@@ -37,6 +37,5 @@ public class Primes {
         }
     }
     System.out.println("There are " + count + " primes between 2 and " + N + " (" + (int)(((double)count/N)*100) + "% are primes)");
-    
     }
 }
