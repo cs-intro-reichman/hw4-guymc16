@@ -8,7 +8,7 @@ public class Primes {
         int count = 0;
 
 
-System.err.println("[Prime numbers up to " + N + ":");
+System.err.println("Prime numbers up to " + N + ":");
 
         for (int i=2;i<N+1; i++)
     {
