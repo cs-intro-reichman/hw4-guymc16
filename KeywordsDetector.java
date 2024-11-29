@@ -21,6 +21,71 @@ public class KeywordsDetector {
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+        
+        boolean ans = false;
+        for (int i=0; i<sentences.length; i++)
+        {
+            ans = false;
+            for (int j=0;j<keywords.length; j++)
+            {
+             if (contains(sentences[i], keywords[j]))
+             {
+                ans = true;
+                break;
+             }
+
+            }
+            if (ans==true)
+            {
+                System.out.println(sentences[i]);
+            }
+        }
+    }
+    public static boolean contains(String str1, String str2) {
+       
+        boolean Ans = true;
+        String low1 = lowerCase(str1);
+        String low2 = lowerCase(str2);
+
+        
+        if (low1.length()==low2.length())
+        {
+            if (low1.equals(low2))
+            {
+                return true;
+            }
+            else return false;
+        } else if (low1.length()<low2.length())
+        {
+            return false;
+        } else
+        for (int i=0; i<=low1.length()-low2.length(); i++)
+        {
+            Ans = true;
+            for (int j=0; j<low2.length(); j++)
+            {
+                if (low1.charAt(i+j)!=low2.charAt(j))
+                {
+                    Ans = false; 
+                    break;
+                } 
+            }
+            if (Ans==true) return true;
+        }
+    
+        return false;
+    }
+
+    public static String lowerCase(String str) {
+       
+        String str1 = str;
+        for (int i=0; i<str1.length(); i++)
+        {
+            if (str1.charAt(i)>= 'A' && str1.charAt(i)<='Z')
+            {
+                str1 = str1.replace(str1.charAt(i), (char)(str1.charAt(i)+32));
+            }
+        }
+        return str1;
     }
 }
