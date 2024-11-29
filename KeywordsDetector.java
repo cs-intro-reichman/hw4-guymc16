@@ -44,23 +44,27 @@ public class KeywordsDetector {
     public static boolean contains(String str1, String str2) {
        
         boolean Ans = true;
-        if (str1.length()==str2.length())
+        String low1 = lowerCase(str1);
+        String low2 = lowerCase(str2);
+
+        
+        if (low1.length()==low2.length())
         {
-            if (str1.equals(str2))
+            if (low1.equals(low2))
             {
                 return true;
             }
             else return false;
-        } else if (str1.length()<str2.length())
+        } else if (low1.length()<low2.length())
         {
             return false;
         } else
-        for (int i=0; i<=str1.length()-str2.length(); i++)
+        for (int i=0; i<=low1.length()-low2.length(); i++)
         {
             Ans = true;
-            for (int j=0; j<str2.length(); j++)
+            for (int j=0; j<low2.length(); j++)
             {
-                if (str1.charAt(i+j)!=str2.charAt(j))
+                if (low1.charAt(i+j)!=low2.charAt(j))
                 {
                     Ans = false; 
                     break;
@@ -70,5 +74,18 @@ public class KeywordsDetector {
         }
     
         return false;
+    }
+
+    public static String lowerCase(String str) {
+       
+        String str1 = str;
+        for (int i=0; i<str1.length(); i++)
+        {
+            if (str1.charAt(i)>= 'A' && str1.charAt(i)<='Z')
+            {
+                str1 = str1.replace(str1.charAt(i), (char)(str1.charAt(i)+32));
+            }
+        }
+        return str1;
     }
 }
